@@ -1,6 +1,7 @@
 import React from 'react';
-import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import { Home, Info, User, Settings, HelpCircle } from 'lucide-react';
+import '@szhsin/react-menu/dist/index.css'; // Ensure styles are included
 
 const HeaderWithIcons = () => {
   const menuItems = [
@@ -69,4 +70,16 @@ const HeaderWithIcons = () => {
   );
 };
 
-export default HeaderWithIcons;
+const App = () => {
+  return (
+    <div>
+      <HeaderWithIcons />
+      <main className="p-4">
+        <h1 className="text-2xl font-bold">Welcome to the Header Example</h1>
+        <p className="mt-2">Explore the menus above to see different options.</p>
+      </main>
+    </div>
+  );
+};
+
+export default App;
