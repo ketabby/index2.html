@@ -1,0 +1,72 @@
+import React from 'react';
+import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
+import { Home, Info, User, Settings, HelpCircle } from 'lucide-react';
+
+const HeaderWithIcons = () => {
+  const menuItems = [
+    {
+      icon: <Home size={20} />, 
+      label: 'Home', 
+      submenu: [
+        { label: 'Dashboard', onClick: () => console.log('Dashboard clicked') },
+        { label: 'Activity', onClick: () => console.log('Activity clicked') }
+      ]
+    },
+    {
+      icon: <Info size={20} />, 
+      label: 'About', 
+      submenu: [
+        { label: 'Company Info', onClick: () => console.log('Company Info clicked') },
+        { label: 'Team', onClick: () => console.log('Team clicked') }
+      ]
+    },
+    {
+      icon: <User size={20} />, 
+      label: 'Profile', 
+      submenu: [
+        { label: 'View Profile', onClick: () => console.log('View Profile clicked') },
+        { label: 'Edit Profile', onClick: () => console.log('Edit Profile clicked') }
+      ]
+    },
+    {
+      icon: <Settings size={20} />, 
+      label: 'Settings', 
+      submenu: [
+        { label: 'Account Settings', onClick: () => console.log('Account Settings clicked') },
+        { label: 'Privacy', onClick: () => console.log('Privacy clicked') }
+      ]
+    },
+    {
+      icon: <HelpCircle size={20} />, 
+      label: 'Help', 
+      submenu: [
+        { label: 'FAQ', onClick: () => console.log('FAQ clicked') },
+        { label: 'Support', onClick: () => console.log('Support clicked') }
+      ]
+    }
+  ];
+
+  return (
+    <header className="flex items-center bg-gray-800 text-white p-4">
+      {menuItems.map((item, index) => (
+        <Menu
+          key={index}
+          menuButton={
+            <MenuButton className="flex items-center gap-2 px-4 py-2 hover:bg-gray-700 rounded-md">
+              {item.icon}
+              <span>{item.label}</span>
+            </MenuButton>
+          }
+        >
+          {item.submenu.map((subItem, subIndex) => (
+            <MenuItem key={subIndex} onClick={subItem.onClick}>
+              {subItem.label}
+            </MenuItem>
+          ))}
+        </Menu>
+      ))}
+    </header>
+  );
+};
+
+export default HeaderWithIcons;
